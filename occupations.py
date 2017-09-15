@@ -1,7 +1,7 @@
 '''
 Joyce Wu & Yuyang Zhang
 SoftDev1 pd07
-K02 -- StI/O: Divine your Destiny!
+K03 -- StI/O: Divine your Destiny!
 2017-09-14
 '''
 
