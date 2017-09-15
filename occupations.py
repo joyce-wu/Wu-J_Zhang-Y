@@ -6,17 +6,17 @@ K02 -- StI/O: Divine your Destiny!
 '''
 
 
-file = open("occupations.csv", "r")
+import csv
 
-dictionary = {}
+dictionary = {} #creates blank dictionary 
 
-for line in file: #at each line
-    x = line.split(",") #split at the comma
-    occupation = x[0] #occupation before
-    percent = x[1] #percent after
-    percentupdate = len(percent)-2 #removes \n and \r after percent
-    percent = percent[0:percentupdate] #start from 0 to final value before \n and \r
-    dictionary[occupation] = percent
+with open('occupations.csv', 'r') as csv_file: #opens csv file and reads it
+    csv_reader = csv.reader(csv_file) 
 
+    next(csv_reader) #skips headings 
+    for line in csv_reader: #goes through line by line
+       occupation = line[0] #takes occupation from each line
+       percent = line[1] #takes percent from eachline
+       dictionary[occupation]= percent #pairs occupation with its respective percent
 
 print dictionary
