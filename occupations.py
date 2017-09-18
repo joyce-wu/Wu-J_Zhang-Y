@@ -17,24 +17,19 @@ with open('occupations.csv', 'r') as csv_file: #opens csv file and reads it
     next(csv_reader) #skips headings
     for line in csv_reader: #goes through line by line
         if not (line[0] == "Total"): #does not include total in dictionary
-            occupation = line[0] #takes occupation from each line
-            percent = line[1] #takes percent from eachline
+            occupation = line[0] #takes occupation from each line and converts to a decimal
+            percent = Decimal(line[1]) #takes percent from eachline
             dictionary[occupation]= percent #pairs occupation with its respective percent
        
 
-#print dictionary
-
 def rand_occupation():
-    randnum = random.randint(0,100) #picks a number from 0-100
-    #print randnum
-    for occupation in dictionary:  #goes through each percent in the dictionary
-        val = dictionary.get(occupation)
-        if (randnum < Decimal(val)): #if number is greater than percent 
-            #print 10 * Decimal(val)
-            print(occupation) #print the occupation
-            break #allows only for one occupation to be printed
+    myList = []
+    #goes through each list, multiplying each percentage by 10
+    for occupation in dictionary: 
+        val = dictionary.get(occupation) * 10
+        for x in range(val):
+            myList.append(occupation) #adds occupation by value
+    print random.choice(myList) #randomly chooses occupation from list
 
-            
-      
-for x in range(100):
-    rand_occupation()
+rand_occupation()
+
