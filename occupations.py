@@ -29,7 +29,7 @@ def rand_occupation():
     #print randnum
     for occupation in dictionary:  #goes through each percent in the dictionary
         val = dictionary.get(occupation)
-        if (randnum < Decimal(val)): #if number is greater than percent 
+        if (randnum < Decimal(val)): #if number is less than percent 
             #print 10 * Decimal(val)
             print(occupation) #print the occupation
             break #allows only for one occupation to be printed
